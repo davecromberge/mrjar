@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>mrjar-root</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>mrjar-base</artifactId>
+    <name>${project.artifactId}</name>
+
+    <properties>
+        <maven.install.skip>true</maven.install.skip>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <jdkToolchain>
+                            <version>1.8</version>
+                        </jdkToolchain>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <!-- Apache Parent pom, pluginManagement-->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <trimStackTrace>false</trimStackTrace>
+                        <useManifestOnlyJar>false</useManifestOnlyJar>
+                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        <jdkToolchain>
+                            <version>1.8</version>
+                        </jdkToolchain>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
